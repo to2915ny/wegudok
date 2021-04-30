@@ -20,7 +20,13 @@
     "@angular/platform-browser-dynamic": "~11.2.0",
     "@angular/router": "~11.2.0",
     "@capacitor/core": "2.4.7",
+    "@ionic-native/calendar": "^5.32.1",
     "@ionic/angular": "^5.5.2",
+    "chart.js": "^2.9.3",
+    "cordova-plugin-calendar": "^5.1.5",
+    "ion2-calendar": "^3.0.0-rc.0",
+    "moment": "^2.29.1",
+    "ng2-charts": "^2.4.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
