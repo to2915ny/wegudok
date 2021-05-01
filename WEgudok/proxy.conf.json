@@ -1,0 +1,8 @@
+{
+    "/oai/*": {
+      "target": "https://openapi.wooribank.com:444",
+      "secure": true,
+      "changeOrigin": true
+      
+    }
+  }
