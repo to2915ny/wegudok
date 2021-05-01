@@ -13,7 +13,7 @@
     </ion-toolbar>
   </ion-header>
 
-    <ion-card>
+    <ion-card id="calendar">
 
     <ion-calendar [(ngModel)]="date"
               (change)="onChange($event)"
@@ -28,8 +28,8 @@
     </ion-list-header>
 
     <ion-item id="subs-item">
-      <ion-thumbnail item-start>
-        <img src="../../pictures/netflix.png">
+      <ion-thumbnail item-start id="icon">
+        <img src="assets/images/netflix.png">
       </ion-thumbnail>
       <ion-label >
         <h3>Netflix</h3>
@@ -38,8 +38,8 @@
     </ion-item>
 
     <ion-item id="subs-item">
-      <ion-thumbnail item-start>
-        <img src="../../pictures/netflix.png">
+      <ion-thumbnail item-start id="icon">
+        <img src="assets/images/netflix.png">
       </ion-thumbnail>
       <ion-label >
         <h3>Netflix</h3>

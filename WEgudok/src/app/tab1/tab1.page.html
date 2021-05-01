@@ -13,6 +13,14 @@
     </ion-toolbar>
   </ion-header>
 
+  <!-- <ion-card *ngIf="user">
+    <ion-card-content>
+      {{ user.email }} - {{ user.first_name }} {{ user.last_name }}
+    </ion-card-content>
+  </ion-card> -->
+ 
+  <!-- <ion-button expand="block" (click)="logout()" routerLink="" routerDirection="backward">Logout</ion-button> -->
+
   <app-explore-container name="Tab 2 page"></app-explore-container>
   
   <ion-buttons end>
@@ -21,74 +29,79 @@
 
   <ion-list id="gudok-list" (click)="initModal()">
     <ion-card>
-    <ion-item id="gudok-item">
-      <ion-thumbnail item-start>
-        <img src="../../pictures/netflix.png">
+    <ion-item id="gudok-item" lines="none">
+      <ion-thumbnail id="icon" item-start> 
+        <img src="assets/images/netflix.png">
       </ion-thumbnail>
       <ion-label>
+        <p>Netflix</p>
         <h2>20,000원</h2>
-        <p>결제일: 2021.12.05</p>
       </ion-label>
-      
     </ion-item>
-    <ion-progress-bar value="0.5"></ion-progress-bar>
+    <ion-progress-bar [value]="progress" ></ion-progress-bar>
+    <p id="paydate">결제일: 2021.12.05</p>
   </ion-card>
   </ion-list>
 
-
-  <ion-list id="gudok-list">
+  <ion-list id="gudok-list" (click)="initModal()">
     <ion-card>
-    <ion-item id="gudok-item">
-      <ion-thumbnail item-start>
-        <img src="../../pictures/netflix.png">
+    <ion-item id="gudok-item" lines="none">
+      <ion-thumbnail id="icon" item-start> 
+        <img src="assets/images/youtube.png">
       </ion-thumbnail>
       <ion-label>
-        <h2>20,000원</h2>
-        <p>결제일: 2021.12.05</p>
+        <p>Youtube</p>
+        <h2>3,000원</h2>
       </ion-label>
-      
     </ion-item>
-    <ion-progress-bar value="0.5"></ion-progress-bar>
+    <ion-progress-bar [value]="progress" ></ion-progress-bar>
+    <p id="paydate">결제일: 2021.06.05</p>
   </ion-card>
   </ion-list>
 
 
-    <ion-list id="gudok-list">
-   <ion-card>
-    <ion-item id="gudok-item">
-      <ion-thumbnail item-start>
-        <img src="../../pictures/netflix.png">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>20,000원</h2>
-        <p>결제일: 2021.12.05</p>
-      </ion-label>
-      
-    </ion-item>
-    <ion-progress-bar value="0.5"></ion-progress-bar>
-  </ion-card>
-  </ion-list>
-
-
-  <ion-list id="gudok-list">
+  <ion-list id="gudok-list" (click)="initModal()">
     <ion-card>
-    <ion-item id="gudok-item">
-      <ion-thumbnail item-start>
-        <img src="../../pictures/netflix.png">
+    <ion-item id="gudok-item" lines="none">
+      <ion-thumbnail id="icon" item-start> 
+        <img src="assets/images/netflix.png">
       </ion-thumbnail>
       <ion-label>
+        <p>Netflix</p>
         <h2>20,000원</h2>
-        <p>결제일: 2021.12.05</p>
       </ion-label>
-      
     </ion-item>
-    <ion-progress-bar value="0.5"></ion-progress-bar>
+    <ion-progress-bar [value]="progress" ></ion-progress-bar>
+    <p id="paydate">결제일: 2021.12.05</p>
   </ion-card>
   </ion-list>
+
+
+  <ion-list id="gudok-list" (click)="initModal()">
+    <ion-card>
+    <ion-item id="gudok-item" lines="none">
+      <ion-thumbnail id="icon" item-start> 
+        <img src="assets/images/netflix.png">
+      </ion-thumbnail>
+      <ion-label>
+        <p>Netflix</p>
+        <h2>20,000원</h2>
+      </ion-label>
+    </ion-item>
+    <ion-progress-bar [value]="progress" ></ion-progress-bar>
+    <p id="paydate">결제일: 2021.12.05</p>
+  </ion-card>
+  </ion-list>
+
+
+
+  
+
+  <!-- <p *ngIf="dataReturned">{{dataReturned}}</p> -->
 
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
+    <ion-fab-button size="small" (click)="openModal()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

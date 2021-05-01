@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { AddModalPage } from '../add-modal/add-modal.page';
 import { AppModalPage } from '../app-modal/app-modal.page';
 import { Account} from '../providers/account';
+
+
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -11,9 +15,23 @@ import { Account} from '../providers/account';
 })
 export class Tab1Page {
 
-  modalDataResponse: any;
+  progress = 0.50; 
 
-  constructor(public modalCtrl: ModalController,public account : Account) {}
+  modalDataResponse: any;
+  dataReturned: any;
+  user = null;
+ 
+  constructor(public modalCtrl: ModalController, public modalController: ModalController,private auth: AuthService,public account : Account) {}
+
+  ionViewWillEnter() {
+    this.user = this.auth.getUser();
+  }
+ 
+  // logout() {
+  //   this.auth.logout();
+  // }
+
+
 
   getTransactions(){
     this.account.getTransactions();
@@ -33,6 +51,26 @@ export class Tab1Page {
         console.log('Modal Sent Data : '+ modalDataResponse.data);
       }
     });
+
+    return await modal.present();
+  }
+
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: AddModalPage,
+      componentProps: {
+        "paramID": 123,
+        "paramTitle": "Test Title"
+      }
+    });
+
+    modal.onDidDismiss().then((dataReturned) => {
+      if (dataReturned !== null) {
+        this.dataReturned = dataReturned.data;
+        //alert('Modal Sent Data :'+ dataReturned);
+      }
+    });
+
 
     return await modal.present();
   }
