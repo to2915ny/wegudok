@@ -13,18 +13,18 @@
     </ion-toolbar>
   </ion-header>
 
-    <ion-card id="calendar">
-
-    <ion-calendar [(ngModel)]="date"
+  <div id="calendar">
+  <ion-calendar [(ngModel)]="date"
               (change)="onChange($event)"
               [type]="type"
               [format]="'YYYY-MM-DD'">
     </ion-calendar>
-  </ion-card>
+  </div>  
 
-  <ion-list>
+
+  <ion-list id="subslist">
     <ion-list-header>
-      결제 항목
+      <ion-label>결제 항목</ion-label>
     </ion-list-header>
 
     <ion-item id="subs-item">

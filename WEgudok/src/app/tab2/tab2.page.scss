@@ -2,6 +2,8 @@
     position: relative;
     overflow-x: scroll;
     overflow-y: hidden;
+    background-color: #f2f5fa;
+    padding: 5px;
   }
   
   .chartWrapper > canvas {
@@ -15,7 +17,14 @@
   .chartAreaWrapper {
     width: 400px;
   }
-  
-  #amount{
-      text-align: center;
-  }
+
+
+#amount{
+  font-size: 12px;
+  margin: 20px;
+  border-radius: 15px;
+  border-style: dashed;
+  border-width: 1px;
+  border-color:#cfcfcf;
+  text-align: center;
+}
