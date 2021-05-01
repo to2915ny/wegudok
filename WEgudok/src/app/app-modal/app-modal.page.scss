@@ -9,7 +9,7 @@
 }
 
 #info-grid{
-    text-align: center;
+    padding: 20px;
 }
 
 #info-grid ion-row{
@@ -24,4 +24,18 @@
     margin-top: 0px;
     font-size: 20px;
     font-weight: bold;
+}
+
+#app-info img{
+    border-radius: 10px;
+    width: 70px !important;
+    height: 70px !important;
+}
+
+#col1{
+    text-align: left;
+}
+#col2{
+    text-align: right;
+    color: gray;
 }

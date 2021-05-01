@@ -27,10 +27,15 @@
             <ion-input type="password" placeholder="비밀번호를 입력하세요." name="password" [(ngModel)]="credentials.pw">
             </ion-input>
           </ion-item>
- 
-          <ion-button (click)="login()" expand="block">로그인</ion-button>
+
+          <ion-row>
+            <ion-col>
+          <ion-button (click)="login()" expand="block" routerLink="/members" routerDirection="backward" >로그인</ion-button>
           <ion-button expand="block" color="secondary" routerLink="/register" routerDirection="forward">회원가입
           </ion-button>
+         
+        </ion-col>
+      </ion-row>
  
         </ion-card-content>
       </ion-card>

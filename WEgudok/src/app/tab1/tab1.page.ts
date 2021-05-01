@@ -11,6 +11,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class Tab1Page {
 
+  progress = 0.50; 
+
   modalDataResponse: any;
   dataReturned: any;
   user = null;
@@ -21,9 +23,9 @@ export class Tab1Page {
     this.user = this.auth.getUser();
   }
  
-  logout() {
-    this.auth.logout();
-  }
+  // logout() {
+  //   this.auth.logout();
+  // }
 
 
   async initModal() {

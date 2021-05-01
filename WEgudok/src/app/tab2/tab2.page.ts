@@ -21,6 +21,12 @@ export class Tab2Page{
   public barChartData:any[] = [
     {data: [65, 59, 80, 81, 56, 55, 40, 70, 98, 56,12,34,56], label: '구독료'},
   ];
+
+  public chartColors: any[] = [
+    { 
+      backgroundColor: "#057af0"
+      // backgroundColor:["#1f46a6", "#1f87a6", "#1fa6a2", "#1f46a6", "#1f87a6", "#1fa6a2","#1f46a6", "#1f87a6", "#1fa6a2","#1f46a6", "#1f87a6", "#1fa6a2"] 
+    }];
   
   // events
   public chartClicked(e:any):void {

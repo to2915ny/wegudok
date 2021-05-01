@@ -45,7 +45,7 @@ export class AuthService {
  
   login(credentials: {email: string, pw: string }) {
     // Normally make a POST request to your APi with your login credentials
-    if (credentials.email != 'saimon@devdactic.com' || credentials.pw != '123') {
+    if (credentials.email != 'abc@gmail.com' || credentials.pw != '123') {
       return of(null);
     }
  
