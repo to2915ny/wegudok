@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      구독 그래프
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">구독 그래프</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <app-explore-container name="Tab 2 page"></app-explore-container>
+
+  <div class="chartWrapper">
+    <div class="chartAreaWrapper">
+      <canvas baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [legend]="barChartLegend"
+      [chartType]="barChartType"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)"></canvas>
+  </div>
+    <canvas id="chartAxis" height="210" width="0"></canvas>
+  
+  </div>
+
+  <div id="amount">
+    <p>현재 구독료를 포함한 이번 달 </p>
+    <p>소비 금액은 </p>
+    <h2>260,000원</h2>
+  </div>
+
+
+</ion-content>

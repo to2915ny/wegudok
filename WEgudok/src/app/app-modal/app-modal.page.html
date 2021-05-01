@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>결제 정보</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="app-info">
+    <img src="../../pictures/netflix.png">
+    <p>{{ name }}</p>
+  </div>
+
+  <div>
+    <ion-grid id="info-grid">
+      <ion-row>
+        <ion-col>
+          Member Since
+        </ion-col>
+        <ion-col>
+          2018.10.05
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          총 구독 금액
+        </ion-col>
+        <ion-col>
+          600,000원
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          1개월 구독료
+        </ion-col>
+        <ion-col>
+          20,000원
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          12개월 구독료
+        </ion-col>
+        <ion-col>
+          240,000원
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div id="comment">
+    <p>1달에 치킨과 치즈볼을 1번 참으시면<br>이 서비스를 계속 이용하실 수 있습니다.</p>
+    <ion-button size="small" color="light" (click)="close()">Close</ion-button>
+  </div>
+
+  
+
+</ion-content>
