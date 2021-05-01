@@ -13,6 +13,14 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-card *ngIf="user">
+    <ion-card-content>
+      {{ user.email }} - {{ user.first_name }} {{ user.last_name }}
+    </ion-card-content>
+  </ion-card>
+ 
+  <ion-button expand="block" (click)="logout()">Logout</ion-button>
+
   <app-explore-container name="Tab 2 page"></app-explore-container>
   
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddModalPage } from '../add-modal/add-modal.page';
 import { AppModalPage } from '../app-modal/app-modal.page';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-tab1',
@@ -12,8 +13,17 @@ export class Tab1Page {
 
   modalDataResponse: any;
   dataReturned: any;
+  user = null;
+ 
+  constructor(public modalCtrl: ModalController, public modalController: ModalController,private auth: AuthService) {}
 
-  constructor(public modalCtrl: ModalController, public modalController: ModalController) {}
+  ionViewWillEnter() {
+    this.user = this.auth.getUser();
+  }
+ 
+  logout() {
+    this.auth.logout();
+  }
 
 
   async initModal() {
@@ -50,6 +60,7 @@ export class Tab1Page {
         //alert('Modal Sent Data :'+ dataReturned);
       }
     });
+
 
     return await modal.present();
   }
