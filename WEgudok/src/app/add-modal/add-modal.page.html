@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar id="back" >
+    <ion-icon color="primary" name="chevron-back-outline" (click)="closeModal()"></ion-icon>
+    <ion-button size="small" (click)="saveModal()">등록</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+
+  <!-- <p>ID : {{modelId}}</p> -->
+  
+
+  <ion-list lines="full" class="ion-no-margin">
+    <p>구독 추가하기</p>
+    <ion-list-header >
+      <h5><strong>구독 서비스 정보를<br>입력해주세요✍️</strong></h5>
+    </ion-list-header>
+    <ion-card>
+    <ion-item>
+
+      <ion-label position="stacked">서비스 이름</ion-label>
+      <ion-input placeholder="무엇을 구독하고 계신가요?"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">구독 요금</ion-label>
+      <ion-input placeholder="얼마에 구독하고 계신가요?"></ion-input>
+   
+    </ion-item>
+  </ion-card>
+
+    <ion-item>
+      <ion-label>구독 시작</ion-label>
+      <ion-datetime value="2021-05-01" display-timezone="utc" displayFormat="YYYY년 M월 D일"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+
+
+
+</ion-content>

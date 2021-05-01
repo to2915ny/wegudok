@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { AddModalPage } from '../add-modal/add-modal.page';
 import { AppModalPage } from '../app-modal/app-modal.page';
 
 @Component({
@@ -10,8 +11,10 @@ import { AppModalPage } from '../app-modal/app-modal.page';
 export class Tab1Page {
 
   modalDataResponse: any;
+  dataReturned: any;
 
-  constructor(public modalCtrl: ModalController) {}
+  constructor(public modalCtrl: ModalController, public modalController: ModalController) {}
+
 
   async initModal() {
     const modal = await this.modalCtrl.create({
@@ -26,6 +29,25 @@ export class Tab1Page {
       if (modalDataResponse !== null) {
         this.modalDataResponse = modalDataResponse.data;
         console.log('Modal Sent Data : '+ modalDataResponse.data);
+      }
+    });
+
+    return await modal.present();
+  }
+
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: AddModalPage,
+      componentProps: {
+        "paramID": 123,
+        "paramTitle": "Test Title"
+      }
+    });
+
+    modal.onDidDismiss().then((dataReturned) => {
+      if (dataReturned !== null) {
+        this.dataReturned = dataReturned.data;
+        //alert('Modal Sent Data :'+ dataReturned);
       }
     });
 
