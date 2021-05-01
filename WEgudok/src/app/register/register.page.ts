@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-
+import {Register} from '../providers/register';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -15,7 +15,7 @@ export class RegisterPage implements OnInit {
   name:any;
   password:any;
 
-  constructor(public navCtrl: NavController) { 
+  constructor(public navCtrl: NavController,public register:Register) { 
     this.masks = {
       phoneNumber: ['(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
     };
@@ -31,8 +31,8 @@ export class RegisterPage implements OnInit {
       name : this.name,
       password : this.password
     };
-    
-    console.log(unmaskedData);
+    this.register.register(unmaskedData);
+    //console.log(unmaskedData);
   }
 
 

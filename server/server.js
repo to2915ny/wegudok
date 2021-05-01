@@ -70,7 +70,7 @@ var Subscription = mongoose.model('Subscription', {
 var User = mongoose.model('User', {
     email: { type: String, required : true },
     password: { type: String, required : true },
-    accountno: Number,
+    accountno: String,
     name: String,
     phoneno: String,
 });
@@ -78,14 +78,14 @@ var User = mongoose.model('User', {
 //login
 app.post('/', function (req, res) {
     console.log(req.body);
-    if (req.session.email) {
+/*    if (req.session.email) {
         res.redirect('/members/tab1');
     }
-    else {
+    else {*/
 
         async.parallel({
             user: function (callback) {
-                User.findOne({ 'userid': req.body.email }).exec(callback);
+                User.findOne({ 'email': req.body.email }).exec(callback);
             },
         }, function (err, results) {
             if (err) { return err; }
@@ -93,27 +93,49 @@ app.post('/', function (req, res) {
                 res.json({'empty':1000});
             }
             else {
-                res.json(results.user);
+                res.json({'Logged in!':300});
                 ans = decrypt(key, results.user.password);
                 if (req.body.password == ans) {
                     req.session.email = results.user.email;
                     req.session.accountno = results.user.accountno;
                 }
+                
             }
         }
         );
+        console.log(req.session.email);
+                
 
-
-    }
+    //}
 
 });
-
+//Register
     app.post('/register',function(req,res){
+        console.log(req.body);
+        var password = encrypt(key,req.body.password);
+        var userinfo = new User({
+            email: req.body.email,
+            password: password,
+            accountno: req.body.accountno,
+            name: req.body.name,
+            phoneno: req.body.phonenumber,
+
+        });
+
+        userinfo.save(function(err){
+            if(err){res.json({'Message':'Not Registered!'})}
+        });
+        req.session.email = req.body.email;
+        req.session.accountno = req.session.accountno;
+
+        res.json({'Registered!':200});
+        
+
 
 
     });
     // Get sublist for tab1
-    app.get('/', function (req, res) {
+    app.get('/member/tab1', function (req, res) {
 
     console.log("fetching subs");
 

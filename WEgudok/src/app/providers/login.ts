@@ -35,6 +35,9 @@ async login(credentials) {
          
           await alert.present();  
         }
+        else{
+            this.router.navigateByUrl('/members');
+        }
           
     });
         }

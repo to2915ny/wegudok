@@ -33,9 +33,7 @@ export class Tab1Page {
 
 
 
-  getTransactions(){
-    this.account.getTransactions();
-  } 
+
   async initModal() {
     const modal = await this.modalCtrl.create({
       component: AppModalPage,
