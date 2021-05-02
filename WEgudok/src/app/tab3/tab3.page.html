@@ -7,24 +7,19 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">캘린더</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-    <ion-card id="calendar">
-
-    <ion-calendar [(ngModel)]="date"
-              (change)="onChange($event)"
-              [type]="type"
-              [format]="'YYYY-MM-DD'">
+  <div id="calendar">
+    <ion-calendar [(ngModel)]="dateRange"
+        [options]="optionsRange"
+        [type]="type"
+        [format]="'YYYY-MM-DD'">
     </ion-calendar>
-  </ion-card>
+  </div>  
 
-  <ion-list>
+
+  <ion-list id="subslist">
     <ion-list-header>
-      결제 항목
+      <ion-label>결제 항목</ion-label>
     </ion-list-header>
 
     <ion-item id="subs-item">

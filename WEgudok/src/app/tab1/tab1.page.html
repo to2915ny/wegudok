@@ -7,11 +7,11 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">구독 서비스</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
   <!-- <ion-card *ngIf="user">
     <ion-card-content>
@@ -23,7 +23,9 @@
 
   <app-explore-container name="Tab 2 page"></app-explore-container>
 
- 
+
+
+ <div id="mainlist">
   <ion-list id="gudok-list" (click)="initModal()">
     <ion-card>
     <ion-item id="gudok-item" lines="none">
@@ -35,8 +37,12 @@
         <h2>20,000원</h2>
       </ion-label>
     </ion-item>
-    <ion-progress-bar [value]="progress" ></ion-progress-bar>
-    <p id="paydate">결제일: 2021.12.05</p>
+    <ion-progress-bar id="progressbar" [value]="progress" ></ion-progress-bar>
+    <div id="alerticon" lines="none">
+      <ion-icon item-start color="danger" name="alert-circle"></ion-icon> 
+     결제 3일 남음!
+    </div>
+    <p id="paydate">결제일: 2021.06.05</p>
   </ion-card>
   </ion-list>
 
@@ -51,7 +57,11 @@
         <h2>3,000원</h2>
       </ion-label>
     </ion-item>
-    <ion-progress-bar [value]="progress" ></ion-progress-bar>
+    <ion-progress-bar id="progressbar" [value]="progress" ></ion-progress-bar>
+    <div id="alerticon" lines="none">
+      <ion-icon item-start color="danger" name="alert-circle"></ion-icon> 
+     결제 3일 남음!
+    </div>
     <p id="paydate">결제일: 2021.06.05</p>
   </ion-card>
   </ion-list>
@@ -68,8 +78,12 @@
         <h2>20,000원</h2>
       </ion-label>
     </ion-item>
-    <ion-progress-bar [value]="progress" ></ion-progress-bar>
-    <p id="paydate">결제일: 2021.12.05</p>
+    <ion-progress-bar id="progressbar" [value]="progress" ></ion-progress-bar>
+    <div id="alerticon" lines="none">
+      <ion-icon item-start color="danger" name="alert-circle"></ion-icon> 
+     결제 3일 남음!
+    </div>
+    <p id="paydate">결제일: 2021.06.05</p>
   </ion-card>
   </ion-list>
 
@@ -85,10 +99,16 @@
         <h2>20,000원</h2>
       </ion-label>
     </ion-item>
-    <ion-progress-bar [value]="progress" ></ion-progress-bar>
-    <p id="paydate">결제일: 2021.12.05</p>
+    <ion-progress-bar id="progressbar" [value]="progress" ></ion-progress-bar>
+    <div id="alerticon" lines="none">
+      <ion-icon item-start color="danger" name="alert-circle"></ion-icon> 
+     결제 3일 남음!
+    </div>
+    <p id="paydate">결제일: 2021.06.05</p>
   </ion-card>
   </ion-list>
+
+</div>
 
 
 

@@ -8,25 +8,33 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-item >
-      <ion-label position="floating">이름</ion-label>
-      <ion-input type="text" [(ngModel)]="name" required></ion-input>
+
+  <ion-card id="registercard">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center"><img id="wegudoktitle" src="./assets/images/wegudoktitle.png"></ion-card-title>
+      <ion-label id="welcome-msg">반갑습니다! <br>WE구독을 사용해 구독 서비스를 관리해 보세요.</ion-label>
+    </ion-card-header>
+
+    <ion-card-content>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">이름</ion-label>
+      <ion-input type="text"  placeholder="이름을 입력하세요."[(ngModel)]="name" required></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">전화번호</ion-label>
-      <ion-input type="text" [(ngModel)]="phoneNumber" [textMask]="{mask: masks.phoneNumber}" required ></ion-input>
+    <ion-item lines="none">
+      <ion-label position="stacked">전화번호</ion-label>
+      <ion-input type="text"  placeholder="전화번호를 입력하세요."[(ngModel)]="phoneNumber"  required ></ion-input>
     </ion-item>
 
-    <ion-item >
-      <ion-label position="floating">이메일</ion-label>
-      <ion-input type="text" [(ngModel)]='email' required></ion-input>
+    <ion-item lines="none">
+      <ion-label position="stacked">이메일</ion-label>
+      <ion-input type="text"  placeholder="이메일을 입력하세요."[(ngModel)]='email' required></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">비밀번호</ion-label>
-      <ion-input type="password" [(ngModel)]='password' required></ion-input>
+    <ion-item lines="none">
+      <ion-label position="stacked">비밀번호</ion-label>
+      <ion-input type="password"  placeholder="비밀번호를 입력하세요."[(ngModel)]='password' required></ion-input>
     </ion-item>
 
     <ion-row>
@@ -34,6 +42,8 @@
         <ion-button (click)="save()" color="primary" expand="block" routerLink="" routerDirection="forward">가입 완료</ion-button>
       </ion-col>
     </ion-row>
+
+  </ion-card-content>
 
   </ion-card>
 

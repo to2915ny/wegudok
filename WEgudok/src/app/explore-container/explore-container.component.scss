@@ -5,22 +5,25 @@
   right: 0;
   top: 55%;
   margin: 20px;
-  
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+#text{
+  font-size: 15px;
+  color: #3880ff;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
 
-  color: #000000;
-
-  margin: 0;
+#total_amount{
+  font-size: 25px;
+  font-weight: bold;
+  margin:0;
 }
+
+#current_amount{
+  font-size: 15px;
+  color: gray;
+}
+
 
 #container a {
   text-decoration: none;

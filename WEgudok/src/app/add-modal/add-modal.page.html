@@ -12,10 +12,13 @@
   
 
   <ion-list lines="full" class="ion-no-margin">
-    <p>구독 추가하기</p>
+    <p id="text">구독 추가하기</p>
     <ion-list-header >
       <h5><strong>구독 서비스 정보를<br>입력해주세요✍️</strong></h5>
     </ion-list-header>
+
+    <div id="add">
+
     <ion-card>
     <ion-item>
 
@@ -27,7 +30,7 @@
       <ion-input placeholder="얼마에 구독하고 계신가요?"></ion-input>
    
     </ion-item>
-  </ion-card>
+
 
     <ion-item>
       <ion-label>구독 시작</ion-label>
@@ -35,6 +38,8 @@
       monthShortNames="1월,2월,3월,4월,5월,6월,7월,8월,9월,10월,11월,12월"
       monthName="1월,2월,3월,4월,5월,6월,7월,8월,9월,10월,11월,12월"></ion-datetime>
     </ion-item>
+  </ion-card>
+  </div>
   </ion-list>
 
 </ion-content>

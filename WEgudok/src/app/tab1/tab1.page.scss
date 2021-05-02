@@ -1,3 +1,14 @@
+ion-content{
+    --background: #fff url('../../assets/images/background2.png') no-repeat center center / cover;
+}
+#mainlist{
+    background-color: transparent;
+}
+
+.list-md{
+    background-color: transparent !important;
+}
+
 #gudok-item ion-label{
     text-align: right;
     margin-top: 0;
@@ -7,6 +18,7 @@
     border-radius: 10px;
     width: 80%;
     height: 80%;
+    margin-top: 0px;
 }
 
 #icon ion-thumbnail{
@@ -14,19 +26,20 @@
 }
 
 #gudok-list ion-card{
-    margin-bottom: 0;
+    margin-bottom: -15px;
     padding-top: 5px;
+    border-radius: 15px;
 }
 
 #gudok-item{
     background-color:#f5f5f5;;
 }
 
-ion-progress-bar{
+#progressbar{
   width: 95%;
   padding: 4px;
   border-radius: 10px;
-  margin-top: -2%;
+  margin-top: 0;
   margin-left: 2%;
   margin-right: 2%;
 }
@@ -35,8 +48,19 @@ ion-progress-bar{
     font-size: 8px;
     text-align: right;
     margin-right: 5%;
+    float: right;
 }
 
-ion-fab{
+
+#alerticon {
+    display: inline-block;
+    margin: 2% 0 0 2%;
+    font-size: 10px;
+    color: #f53d3d;
+    vertical-align: middle;
 
 }
+#alerticon ion-icon {
+    font-size: 8px;
+}
+   
