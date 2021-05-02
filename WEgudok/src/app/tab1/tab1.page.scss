@@ -1,4 +1,14 @@
+ion-content{
+    --background: #fff url('../../assets/images/background2.png') no-repeat center center / cover;
+}
 
+#mainlist{
+    background-color: transparent;
+}
+
+.list-md{
+    background-color: transparent !important;
+}
 
 #gudok-item ion-label{
     text-align: right;
@@ -19,6 +29,7 @@
 #gudok-list ion-card{
     margin-bottom: -15px;
     padding-top: 5px;
+    border-radius: 15px;
 }
 
 #gudok-item{

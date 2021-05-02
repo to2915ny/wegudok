@@ -9,6 +9,10 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { Tab3PageRoutingModule } from './tab3-routing.module';
 import { CalendarModule } from 'ion2-calendar';
 
+import { registerLocaleData } from '@angular/common';
+import ko from '@angular/common/locales/en';
+registerLocaleData(ko);
+
 @NgModule({
   imports: [
     IonicModule,
