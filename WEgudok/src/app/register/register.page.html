@@ -11,22 +11,22 @@
   <ion-card>
     <ion-item >
       <ion-label position="floating">이름</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input type="text" [(ngModel)]="name" required></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">전화번호</ion-label>
-      <ion-input type="nubmer" [(ngModel)]="phoneNumber" [textMask]="{mask: masks.phoneNumber}" required ></ion-input>
+      <ion-input type="text" [(ngModel)]="phoneNumber" [textMask]="{mask: masks.phoneNumber}" required ></ion-input>
     </ion-item>
 
     <ion-item >
       <ion-label position="floating">이메일</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input type="text" [(ngModel)]='email' required></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">비밀번호</ion-label>
-      <ion-input type="password" required></ion-input>
+      <ion-input type="password" [(ngModel)]='password' required></ion-input>
     </ion-item>
 
     <ion-row>
