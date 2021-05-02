@@ -1,6 +1,5 @@
 // Set up
-var express = require('express');
-var app = express();                               // create our app w/ express
+var express = require('express');                            // create our app w/ express
 var mongoose = require('mongoose');                     // mongoose for mongodb
 var morgan = require('morgan');             // log requests to the console (express4)
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
@@ -11,9 +10,24 @@ var path = require('path');
 var fs = require('fs');
 var crypto = require('crypto');
 var session = require('express-session');
+var FileStore = require('session-file-store')(session)
+var MongoStore = require('connect-mongo');
+const { exec } = require('node:child_process');
 // Configuration
 mongoose.connect('mongodb://localhost:27017/wegudok');
+mongoose.Promise = global.Promise;
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+var app = express();   
+//세션 설정
+app.use(session({
+    secret: 'work hard'
+    ,saveUninitialized: true,
+    resave: false,
+    store:new FileStore(),
+    maxAge:null
+}));
+
 app.use(morgan('dev'));                                         // log every request to the console
 app.use(express.urlencoded({ 'extended': 'true' }));            // parse application/x-www-form-urlencoded
 app.use(express.json());                                     // parse application/json
@@ -21,11 +35,7 @@ app.use(express.json());                                     // parse applicatio
 app.use(methodOverride());
 app.use(cors());
 
-//세션 설정
-app.use(session({
-    secret: 'work hard'
-    , saveUnintialized: true
-}));
+
 // view 경로 설정
 app.set('views', __dirname + '/views');
 
@@ -61,9 +71,9 @@ function decrypt(key, data) {
 
 // Models
 var Subscription = mongoose.model('Subscription', {
-    accountno: Number,
+    accountno: String,
     title: String,
-    date: Date,
+    date: Number,
     price: Number
 });
 
@@ -73,6 +83,7 @@ var User = mongoose.model('User', {
     accountno: String,
     name: String,
     phoneno: String,
+    balance: String
 });
 // Routes
 //login
@@ -93,17 +104,24 @@ app.post('/', function (req, res) {
                 res.json({'empty':1000});
             }
             else {
-                res.json({'Logged in!':300});
+                
                 ans = decrypt(key, results.user.password);
                 if (req.body.password == ans) {
-                    req.session.email = results.user.email;
-                    req.session.accountno = results.user.accountno;
+                    if(req.session.userID === undefined ){
+                        req.session.userID = results.user.accountno;
+                        req.session.save(function(err) {
+                            // session saved
+                          })
+                    }
+                    console.log('req.session: '+req.session.userID);
                 }
+                res.json({'Logged in!':300});
+                
                 
             }
         }
         );
-        console.log(req.session.email);
+        
                 
 
     //}
@@ -119,70 +137,49 @@ app.post('/', function (req, res) {
             accountno: req.body.accountno,
             name: req.body.name,
             phoneno: req.body.phonenumber,
+            balance : '0'
 
         });
 
         userinfo.save(function(err){
             if(err){res.json({'Message':'Not Registered!'})}
         });
-        req.session.email = req.body.email;
-        req.session.accountno = req.session.accountno;
-
+        if(req.session.email === undefined || req.session.accountno === undefined){
+            req.session.userID = req.body.accountno;
+            req.session.save(function(err) {
+                // session saved
+              })
+        }
         res.json({'Registered!':200});
         
 
 
 
     });
-    // Get sublist for tab1
-    app.get('/member/tab1', function (req, res) {
 
-    console.log("fetching subs");
 
-    // use mongoose to get all reviews in the database
-    Subscription.find({ 'accountno': req.session.account }, function (err, data) {
+    
+    // Get sublist for tab1 and create sublist if none exists
+    app.get('/sublist', function (req, res) {
 
-        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-        if (err)
-            res.send(err)
 
-        res.json(data); // return all reviews in JSON format
-    });
-});
+        console.log(req.session.userID);
+        Subscription.find({title : { $in:['Netflix','KakaoTalk','Coupang','Naver','YouTube'] },accountno:'10020703*****'},
+        function(err,subs){
 
-// create review and send back all reviews after creation
-app.post('/api/reviews', function (req, res) {
-
-    console.log("creating review");
-
-    // create a review, information comes from request from Ionic
-    Review.create({
-        title: req.body.title,
-        description: req.body.description,
-        rating: req.body.rating,
-        done: false
-    }, function (err, review) {
-        if (err)
-            res.send(err);
-
-        // get and return all the reviews after you create another
-        Review.find(function (err, reviews) {
-            if (err)
+            if(err)
                 res.send(err)
-            res.json(reviews);
+            res.json(subs)
+
         });
-    });
 
-});
+    })
 
-// delete a review
-app.delete('/api/reviews/:review_id', function (req, res) {
-    Review.remove({
-        _id: req.params.review_id
-    }, function (err, review) {
+   
 
-    });
-});
+
+    
+
 
 
 // listen (start app with node server.js) ======================================

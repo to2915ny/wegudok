@@ -21,9 +21,11 @@
     "superlogin": "^0.6.1"
   },
   "dependencies": {
+    "connect-mongo": "^4.4.1",
     "consolidate": "^0.16.0",
     "express-session": "^1.17.1",
     "mustache": "^4.2.0",
-    "session": "^0.1.0"
+    "session": "^0.1.0",
+    "session-file-store": "^1.5.0"
   }
 }

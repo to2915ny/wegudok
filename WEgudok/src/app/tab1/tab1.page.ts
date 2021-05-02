@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddModalPage } from '../add-modal/add-modal.page';
 import { AppModalPage } from '../app-modal/app-modal.page';
 import { Account} from '../providers/account';
-
-
 import { AuthService } from '../services/auth.service';
 
 
@@ -13,19 +11,56 @@ import { AuthService } from '../services/auth.service';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
 
   progress = 0.50; 
-
+  subs: any;
   modalDataResponse: any;
   dataReturned: any;
   user = null;
  
   constructor(public modalCtrl: ModalController, public modalController: ModalController,private auth: AuthService,public account : Account) {}
 
+  
   ionViewWillEnter() {
-    this.user = this.auth.getUser();
+    
+    let a = this.account.getsubList().then((data) => {
+      console.log(data);
+      return this.subs = data;
+    });
+    
+    
+    /*this.subs.forEach(function(item){
+      
+      if(item['title'] =='Netflix'){
+          sumNetflix += item['price'];
+          if(max < item['date']){
+            max = item['date']
+             netflix = {'title': 'Netflix',
+                        'date': item['date'],
+                         'price' : item['price'],
+                         'img' : 'assets/images/netflix.png'
+                      }
+          } 
+
+
+      }
+    });*/
+    
+     
+
+    
   }
+  ngOnInit(){
+  
+  }
+  
+  ionViewDidLoad(){
+    
+        
+  }
+ 
+
  
   // logout() {
   //   this.auth.logout();

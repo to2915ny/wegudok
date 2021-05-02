@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Pipe } from '@angular/core';
+import { Account} from '../providers/account'
 
 @Component({
   selector: 'app-explore-container',
@@ -6,10 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./explore-container.component.scss'],
 })
 export class ExploreContainerComponent implements OnInit {
-  @Input() name: string;
+  @Input() name: string 
 
-  constructor() { }
+  balance : any;
+  constructor(public account: Account) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
+  
+  
 
 }
